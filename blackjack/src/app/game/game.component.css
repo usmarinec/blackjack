@@ -1,8 +1,14 @@
 td.game-card {
-    height: 100px;
-    width: 75px;
     background-color: black;
-    color: blue;
-    font-weight: bold;
-    margin: 5px;
+    border-spacing: 15px;
+    border: white;
+    height: 300px;
+    width: 200px;
+    border: 15px white solid;
+
+    
+}
+
+table.game-table {
+    width: 400px;
 }
