@@ -14,8 +14,11 @@ export class GameComponent implements OnInit {
   imageMargin: number = 2;
   cards:ICard[] = [];
   shuffledCards:ICard[] = [];
+  nextCardIndex!:number;
+  nextCard!:ICard;
   errorMessage:string = '';
   sub!:Subscription;
+  gamePlay!:boolean;
   
   constructor(private gameService: GameService) { }
 
@@ -27,6 +30,8 @@ export class GameComponent implements OnInit {
       },
       error: err => this.errorMessage = err
     });
+
+    this.gamePlay = false;
   }
 
   ngOnDestroy():void {
@@ -45,5 +50,23 @@ export class GameComponent implements OnInit {
         cards[randomIndex], cards[currentIndex]];
     }
     return cards;
+  }
+
+  startNewGame():void {
+    this.gamePlay = true;
+    this.nextCardIndex = 0;
+    this.getNextCard();
+    this.performShuffle(this.shuffledCards);
+    console.log(this.gamePlay);
+  }
+
+  endCurrentGame():void {
+    this.gamePlay = false;
+    console.log(this.gamePlay);
+  }
+
+  getNextCard():void {
+    this.nextCard = this.shuffledCards[this.nextCardIndex];
+    this.nextCardIndex++;
   }
 }

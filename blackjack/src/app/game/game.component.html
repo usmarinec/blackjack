@@ -5,6 +5,12 @@
     <div class="card-body">
         <div class="container-fluid">
             <table class="table game-table">
+                <tr>
+                    <button class="btn btn-primary" 
+                    (click)="startNewGame()">New Game</button>
+                </tr>
+            </table>
+            <table class="table game-table">
                 <thead>
                     <tr>
                         <th>Dealer</th>
@@ -36,6 +42,14 @@
                     <tr>
                         <td class="game-card"></td>
                         <td class="game-card"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn btn-primary">Hit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary">Stand</button>
+                        </td>
                     </tr>
                     <tr class="game-score">
                         <td>Score</td>
