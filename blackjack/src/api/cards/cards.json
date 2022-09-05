@@ -1,0 +1,314 @@
+[
+    {
+      "suit": "hearts",
+      "value": "2",
+      "points": [2],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "3",
+      "points": [3],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "4",
+      "points": [4],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "5",
+      "points": [5],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "6",
+      "points": [6],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "7",
+      "points": [7],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "8",
+      "points": [8],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "9",
+      "points": [9],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "10",
+      "points": [10],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "J",
+      "points": [10],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "Q",
+      "points": [10],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "K",
+      "points": [10],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "hearts",
+      "value": "A",
+      "points": [1,11],
+      "suitUrl": "assets/suits/heart.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "2",
+      "points": [2],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "3",
+      "points": [3],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "4",
+      "points": [4],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "5",
+      "points": [5],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "6",
+      "points": [6],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "7",
+      "points": [7],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "8",
+      "points": [8],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "9",
+      "points": [9],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "10",
+      "points": [10],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "J",
+      "points": [10],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "Q",
+      "points": [10],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "K",
+      "points": [10],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "diamonds",
+      "value": "A",
+      "points": [1,11],
+      "suitUrl": "assets/suits/diamond.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "2",
+      "points": [2],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "3",
+      "points": [3],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "4",
+      "points": [4],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "5",
+      "points": [5],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "6",
+      "points": [6],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "7",
+      "points": [7],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "8",
+      "points": [8],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "9",
+      "points": [9],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "10",
+      "points": [10],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "J",
+      "points": [10],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "Q",
+      "points": [10],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "K",
+      "points": [10],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "clubs",
+      "value": "A",
+      "points": [1,11],
+      "suitUrl": "assets/suits/club.png"
+    },
+    {
+      "suit": "spades",
+      "value": "2",
+      "points": [2],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "3",
+      "points": [3],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "4",
+      "points": [4],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "5",
+      "points": [5],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "6",
+      "points": [6],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "7",
+      "points": [7],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "8",
+      "points": [8],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "9",
+      "points": [9],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "10",
+      "points": [10],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "J",
+      "points": [10],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "Q",
+      "points": [10],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "K",
+      "points": [10],
+      "suitUrl": "assets/suits/spade.png"
+    },
+    {
+      "suit": "spades",
+      "value": "A",
+      "points": [1,11],
+      "suitUrl": "assets/suits/spade.png"
+    }
+  ]
