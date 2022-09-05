@@ -10,15 +10,22 @@ import { GameService } from './game-card.service';
 })
 export class GameComponent implements OnInit {
   public pageTitle: string = "Game";
-  imageWidth: number = 50;
+  imageWidth: number = 100;
+  imageHeight: number = 150;
   imageMargin: number = 2;
   cards:ICard[] = [];
   shuffledCards:ICard[] = [];
+  playerCards!:ICard[];
+  dealerCards!:ICard[];
+  cardsDealt!:boolean;
+  stand!:boolean;
   nextCardIndex!:number;
   nextCard!:ICard;
   errorMessage:string = '';
   sub!:Subscription;
   gamePlay!:boolean;
+  playerScore!:number;
+  dealerScore!:number;
   
   constructor(private gameService: GameService) { }
 
@@ -58,6 +65,9 @@ export class GameComponent implements OnInit {
     this.getNextCard();
     this.performShuffle(this.shuffledCards);
     console.log(this.gamePlay);
+    this.dealerCards = [];
+    this.playerCards = [];
+    this.cardsDealt = false;
   }
 
   endCurrentGame():void {
@@ -68,5 +78,68 @@ export class GameComponent implements OnInit {
   getNextCard():void {
     this.nextCard = this.shuffledCards[this.nextCardIndex];
     this.nextCardIndex++;
+  }
+
+  dealCards():void {
+    this.cardsDealt = true;
+    this.stand = false;
+    this.getNextCard();
+    this.dealerCards.push(this.nextCard);
+    this.getNextCard();
+    this.playerCards.push(this.nextCard);
+    this.getNextCard();
+    this.dealerCards.push(this.nextCard);
+    this.getNextCard();
+    this.playerCards.push(this.nextCard);
+
+    this.calculateScore();
+
+    console.log(this.playerScore, this.dealerScore);
+  }
+
+  calculateScore():void {
+    this.playerCards.forEach(card => {
+      let playerSumArray:number[] = [];
+      let sumMin:number = 0;
+      let sumMax:number = 0;
+      let playerClosest!:number[];
+      if(card.points.length===1) {
+        sumMin+=card.points[0];
+        sumMax+=card.points[0];
+      } else {
+        sumMin+=Math.min.apply(null, card.points);
+        sumMax+=Math.max.apply(null, card.points);
+      }
+      playerSumArray.push(sumMin);
+      playerSumArray.push(sumMax);
+
+      playerSumArray.forEach(sum => {
+        playerClosest.push(Math.abs(21-sum))
+      });
+
+      this.playerScore = playerSumArray.indexOf(Math.min.apply(null, playerClosest));
+    });
+    
+    this.dealerCards.forEach(card => {
+      let dealerSumArray:number[] = [];
+      let sumMin:number =0;
+      let sumMax:number = 0;
+      let dealerClosest!:number[];
+      if(card.points.length===1) {
+        sumMin+=card.points[0];
+        sumMax+=card.points[0];
+      } else {
+        sumMin+=Math.min.apply(null, card.points);
+        sumMax+=Math.max.apply(null, card.points);
+      }
+      dealerSumArray.push(sumMin);
+      dealerSumArray.push(sumMax);
+
+      dealerSumArray.forEach(sum => {
+        dealerClosest.push(Math.abs(21-sum))
+      });
+
+      this.dealerScore = dealerSumArray.indexOf(Math.min.apply(null, dealerClosest));      
+    });
   }
 }

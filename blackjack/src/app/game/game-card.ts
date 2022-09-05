@@ -3,4 +3,5 @@ export interface ICard {
     value: string;
     points: number[];
     suitUrl: string;
+    cardBack: string;
 }
