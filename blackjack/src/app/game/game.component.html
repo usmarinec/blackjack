@@ -5,6 +5,15 @@
     <div class="card-body">
         <div class="container-fluid">
             <table class="table game-table">
+                <tr>
+                    <td *ngIf="!gamePlay"><button class="btn btn-primary" 
+                    (click)="startNewGame()">New Game</button></td>
+                    
+                    <td *ngIf="!cardsDealt"><button class="btn btn-primary"
+                    (click)="dealCards()">Deal Cards</button></td>
+                </tr>
+            </table>
+            <table class="table game-table">
                 <thead>
                     <tr>
                         <th>Dealer</th>
@@ -12,12 +21,22 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="game-card"></td>
-                        <td class="game-card"></td>
+                        <td class="game-card" *ngFor="let card of dealerCards">
+                            <tr *ngIf="dealerCards.indexOf(card)===0 && stand===true" class="value-top">{{card.value}}</tr>
+                            <tr *ngIf="dealerCards.indexOf(card)===0 && stand===true"><img [src]="card.suitUrl"></tr>
+                            <tr *ngIf="dealerCards.indexOf(card)===0 && stand===true" class="value-bottom">{{card.value}}</tr>
+                            <tr *ngIf="dealerCards.indexOf(card)===0 && stand===false"><img [src]="card.cardBack"
+                                                                                            [style.width.px]="imageWidth"
+                                                                                            [style.height.px]="imageHeight"></tr>
+                            <tr *ngIf="dealerCards.indexOf(card)!==0 && (stand===true || stand===false)" class="value-top">{{card.value}}</tr>
+                            <tr *ngIf="dealerCards.indexOf(card)!==0 && (stand===true || stand===false)"><img [src]="card.suitUrl"></tr>
+                            <tr *ngIf="dealerCards.indexOf(card)!==0 && (stand===true || stand===false)" class="value-bottom">{{card.value}}</tr>
+                        </td>
                     </tr>
                     <tr class="game-score">
                         <td>Score</td>
-                        <td id="dealer-score">0</td>
+                        <td *ngIf="stand===true" id="dealer-score">{{dealerScore}}</td>
+                        <td *ngIf="stand===false" id="dealer-score">**</td>
                     </tr>
                 </tbody>
             </table>
@@ -34,12 +53,23 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="game-card"></td>
-                        <td class="game-card"></td>
+                        <td class="game-card" *ngFor="let card of playerCards">
+                            <tr class="value-top">{{card.value}}</tr>
+                            <tr><img [src]="card.suitUrl"></tr>
+                            <tr class="value-bottom">{{card.value}}</tr>
+                        </td>
                     </tr>
                     <tr class="game-score">
                         <td>Score</td>
-                        <td id="player-score">0</td>
+                        <td id="player-score">{{playerScore}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn btn-primary">Hit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" (click)="setStand()">Stand</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
