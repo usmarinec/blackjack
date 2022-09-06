@@ -26,6 +26,8 @@ export class GameComponent implements OnInit {
   gamePlay!:boolean;
   playerScore!:number;
   dealerScore!:number;
+  dealerHasBlackjack!:boolean;
+  winner!:string;
   
   constructor(private gameService: GameService) { }
 
@@ -39,6 +41,8 @@ export class GameComponent implements OnInit {
     });
 
     this.gamePlay = false;
+    this.stand = false;
+    this.winner = 'none';
   }
 
   ngOnDestroy():void {
@@ -60,10 +64,12 @@ export class GameComponent implements OnInit {
   }
 
   startNewGame():void {
+    this.winner = 'none',
     this.gamePlay = true;
+    this.stand = false;
     this.nextCardIndex = 0;
     this.getNextCard();
-    this.performShuffle(this.shuffledCards);
+    this.shuffledCards = this.performShuffle(this.shuffledCards);
     console.log(this.gamePlay);
     this.dealerCards = [];
     this.playerCards = [];
@@ -73,11 +79,13 @@ export class GameComponent implements OnInit {
   }
 
   setStand():void{
-    this.stand = !this.stand;
+    this.stand = true;
     this.endCurrentGame();
+    this.calculateWinner();
   }
   endCurrentGame():void {
     this.gamePlay = false;
+    this.cardsDealt = false;
     console.log(this.gamePlay);
   }
 
@@ -99,8 +107,17 @@ export class GameComponent implements OnInit {
     this.playerCards.push(this.nextCard);
 
     this.calculateScore();
+    this.dealerHasBlackjack = this.dealerBlackjack();
   }
 
+  dealerBlackjack():boolean {
+    if(this.dealerScore===21) {
+      this.setStand();
+      return true;
+    } else {
+      return false;
+    }
+  }
   calculateScore():void {
     //Player Score
     let playerSumArray:number[] = [];
@@ -147,5 +164,23 @@ export class GameComponent implements OnInit {
     });
     let dealerIndex:number = dealerClosest.indexOf(Math.min(...dealerClosest));
     this.dealerScore = dealerSumArray[dealerIndex];
+  }
+
+  calculateWinner():void {
+    if(this.dealerHasBlackjack) {
+      this.winner==='dealer';
+    } else {
+      let scoresArray:number[] = [];
+      scoresArray.push(this.dealerScore, this.playerScore);
+      let closestScores:number[] = [];
+      scoresArray.forEach(score => {
+        closestScores.push(Math.abs(21-score));
+      });
+      if(closestScores.indexOf(Math.min(...closestScores))===0){
+        this.winner='dealer';
+      } else {
+        this.winner='player';
+      }
+    }
   }
 }

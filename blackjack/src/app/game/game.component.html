@@ -17,6 +17,7 @@
                 <thead>
                     <tr>
                         <th>Dealer</th>
+                        <th *ngIf="winner==='dealer'">Wins</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,6 +50,7 @@
                 <thead>
                     <tr>
                         <th>Player</th>
+                        <th *ngIf="winner==='player'">Wins</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +65,7 @@
                         <td>Score</td>
                         <td id="player-score">{{playerScore}}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="cardsDealt">
                         <td>
                             <button class="btn btn-primary">Hit</button>
                         </td>
