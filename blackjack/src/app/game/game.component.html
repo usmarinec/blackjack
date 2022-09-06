@@ -35,7 +35,8 @@
                     </tr>
                     <tr class="game-score">
                         <td>Score</td>
-                        <td id="dealer-score">{{dealerScore}}</td>
+                        <td *ngIf="stand===true" id="dealer-score">{{dealerScore}}</td>
+                        <td *ngIf="stand===false" id="dealer-score">**</td>
                     </tr>
                 </tbody>
             </table>
@@ -67,7 +68,7 @@
                             <button class="btn btn-primary">Hit</button>
                         </td>
                         <td>
-                            <button class="btn btn-primary">Stand</button>
+                            <button class="btn btn-primary" (click)="setStand()">Stand</button>
                         </td>
                     </tr>
                 </tbody>
