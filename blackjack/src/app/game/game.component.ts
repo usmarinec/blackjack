@@ -191,7 +191,7 @@ export class GameComponent implements OnInit {
       });
       if(closestScores.indexOf(Math.min(...closestScores))===1 && this.playerScore<=21){
         this.winner='player';
-      } else /* if(closestScores.indexOf(Math.min(...closestScores))===0 && this.dealerScore<=21) */{
+      } else if (this.dealerScore <= 21){
         this.winner='dealer';
       }
     }
