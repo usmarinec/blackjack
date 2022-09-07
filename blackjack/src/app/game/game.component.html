@@ -9,7 +9,7 @@
                     <td *ngIf="!gamePlay"><button class="btn btn-primary" 
                     (click)="startNewGame()">New Game</button></td>
                     
-                    <td *ngIf="!cardsDealt"><button class="btn btn-primary"
+                    <td *ngIf="!cardsDealt && gamePlay"><button class="btn btn-primary"
                     (click)="dealCards()">Deal Cards</button></td>
                 </tr>
             </table>
@@ -65,9 +65,9 @@
                         <td>Score</td>
                         <td id="player-score">{{playerScore}}</td>
                     </tr>
-                    <tr *ngIf="cardsDealt">
+                    <tr *ngIf="cardsDealt && gamePlay">
                         <td>
-                            <button class="btn btn-primary">Hit</button>
+                            <button class="btn btn-primary" (click)="playerHit()">Hit</button>
                         </td>
                         <td>
                             <button class="btn btn-primary" (click)="setStand()">Stand</button>

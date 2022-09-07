@@ -80,12 +80,13 @@ export class GameComponent implements OnInit {
 
   setStand():void{
     this.stand = true;
+    this.dealerHit();
     this.endCurrentGame();
     this.calculateWinner();
   }
   endCurrentGame():void {
     this.gamePlay = false;
-    this.cardsDealt = false;
+    //this.cardsDealt = false;
     console.log(this.gamePlay);
   }
 
@@ -140,8 +141,12 @@ export class GameComponent implements OnInit {
       playerClosest.push(Math.abs(21-sum));
     });
     let playerIndex:number = playerClosest.indexOf(Math.min(...playerClosest));
-    this.playerScore = playerSumArray[playerIndex];
-
+    if(playerSumArray[playerIndex]<=21){
+      this.playerScore = playerSumArray[playerIndex];
+    } else {
+      this.playerScore = Math.min(...playerSumArray);
+    }
+    
     //Dealer score
     let dealerSumArray:number[] = [];
     let dealerSum1:number = 0;
@@ -164,11 +169,19 @@ export class GameComponent implements OnInit {
     });
     let dealerIndex:number = dealerClosest.indexOf(Math.min(...dealerClosest));
     this.dealerScore = dealerSumArray[dealerIndex];
+
+    //game enders
+    if(this.playerScore>21||this.dealerScore>21){
+      this.setStand();
+    }
+    if(this.playerScore===21){
+      this.setStand();
+    }
   }
 
   calculateWinner():void {
     if(this.dealerHasBlackjack) {
-      this.winner==='dealer';
+      this.winner='dealer';
     } else {
       let scoresArray:number[] = [];
       scoresArray.push(this.dealerScore, this.playerScore);
@@ -176,11 +189,28 @@ export class GameComponent implements OnInit {
       scoresArray.forEach(score => {
         closestScores.push(Math.abs(21-score));
       });
-      if(closestScores.indexOf(Math.min(...closestScores))===0){
-        this.winner='dealer';
-      } else {
+      if(closestScores.indexOf(Math.min(...closestScores))===1 && this.playerScore<=21){
         this.winner='player';
+      } else /* if(closestScores.indexOf(Math.min(...closestScores))===0 && this.dealerScore<=21) */{
+        this.winner='dealer';
       }
     }
+  }
+
+  playerHit():void {
+    this.getNextCard();
+    this.playerCards.push(this.nextCard);
+    this.calculateScore();
+  }
+
+  dealerHit():void {
+    if(this.dealerScore<17) {
+      do {
+        this.getNextCard();
+        this.dealerCards.push(this.nextCard);
+        this.calculateScore();
+      } while (this.dealerScore <17);
+    }
+
   }
 }
